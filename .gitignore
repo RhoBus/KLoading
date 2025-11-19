@@ -1,0 +1,125 @@
+*.iml
+.gradle
+.idea
+.DS_Store
+build
+captures
+.externalNativeBuild
+.cxx
+local.properties
+xcuserdata
+.kotlin
+#So we don't accidentally commit our private keys
+*.gpg
+
+# ===========================
+# Kotlin / Compose Multiplatform
+# ===========================
+
+# Build outputs
+/build/
+/*/build/
+**/build/
+
+# Kotlin Multiplatform
+*.kexe
+*.klib
+*.kotlin_metadata
+
+# ===========================
+# Gradle
+# ===========================
+
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+!**/gradle/wrapper/gradle-wrapper.jar
+gradlew
+gradlew.bat
+
+# Build cache
+build/
+out/
+
+# Local Gradle config
+gradle.properties
+
+# ===========================
+# IntelliJ / Android Studio
+# ===========================
+
+.idea/
+*.ipr
+*.iws
+
+# JetBrains caches
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
+# ===========================
+# Android
+# ===========================
+
+# Gradle build cache & intermediates
+.cxx/
+
+# Android generated files
+captures/
+output.json
+
+# ===========================
+# Packaging / Distribution
+# ===========================
+
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+
+# KMP desktop artifacts
+*/composeApp/build/compose/binaries/
+
+# ===========================
+# iOS (if using Kotlin Native)
+# ===========================
+
+# Xcode
+*.xcuserstate
+*.xcscmblueprint
+*.xcworkspace/
+*.xcodeproj/project.xcworkspace/
+DerivedData/
+Pods/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+# SwiftPM
+.swiftpm/
+.build/
+
+# CocoaPods
+Podfile.lock
+
+# iOS framework outputs
+*.dSYM/
+*.framework/
+*.xcframework/
+
+# ===========================
+# General
+# ===========================
+
+tmp/
+temp/
+*.log
+*.lock
+*.swp
+*.swo
+
+# Kotlin compiler daemon
+kotlinc-runner*.jar
