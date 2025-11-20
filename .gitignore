@@ -42,7 +42,7 @@ build/
 out/
 
 # Local Gradle config
-gradle.properties
+#gradle.properties
 
 # ===========================
 # IntelliJ / Android Studio
