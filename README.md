@@ -1,4 +1,7 @@
-![KLoading](images/kloading_logo.svg)
+<img src="images/kloading_logo.webp" alt="KLoading" width="300"/>
+
+[![Latest Release](https://img.shields.io/github/v/release/rhobus/KLoading)](https://github.com/rhobus/KLoading/releases)
+
 
 # Beautiful Compose Multiplatform Loading Animations
 
@@ -15,7 +18,7 @@ In your common module's `build.gradle.kts`:
 ```kotlin
 commonMain.dependencies {
     // Other dependencies...
-    implementation("io.github.rhobus:KLoading:1.0.0")
+    implementation("io.github.rhobus:KLoading:${latest_version}")
 }
 ```
 
@@ -27,40 +30,13 @@ Ensure your project has access to the Maven Central repository where the library
 
 KLoading currently offers a variety of compelling animations. Each one is a `@Composable` function that can be customized with parameters like `color`, `size`, and animation duration.
 
-<table>
-  <tr>
-    <th style="text-align:center; width:150px;">BarsWave</th>
-    <th style="text-align:center; width:150px;">BricksAnimation</th>
-    <th style="text-align:center; width:150px;">DotSpinner</th>
-  </tr>
-  <tr>
-    <td style="text-align:center;"><img src="images/bars_wave.gif" width="120"/></td>
-    <td style="text-align:center;"><img src="images/bricks_animation.gif" width="120"/></td>
-    <td style="text-align:center;"><img src="images/dot_spinner.gif" width="120"/></td>
-  </tr>
-
-  <tr>
-    <th style="text-align:center;">RotatingBricks</th>
-    <th style="text-align:center;">RotatingSquare</th>
-    <th style="text-align:center;">SonarWave</th>
-  </tr>
-  <tr>
-    <td style="text-align:center;"><img src="images/rotating_bricks.gif" width="120"/></td>
-    <td style="text-align:center;"><img src="images/rotating_square.gif" width="120"/></td>
-    <td style="text-align:center;"><img src="images/sonar_wave.gif" width="120"/></td>
-  </tr>
-
-  <tr>
-    <th style="text-align:center;">ThreeDotsWave</th>
-    <th style="text-align:center;">WatchRunningAnimation</th>
-    <th style="text-align:center;">WatchTickingAnimation</th>
-  </tr>
-  <tr>
-    <td style="text-align:center;"><img src="images/three_dots_wave.gif" width="120"/></td>
-    <td style="text-align:center;"><img src="images/watch_running_animation.gif" width="120"/></td>
-    <td style="text-align:center;"><img src="images/watch_ticking_animation.gif" width="120"/></td>
-  </tr>
-</table>
+| BarsWave | BricksAnimation | DotSpinner |
+|:---:|:---:|:---:|
+| <img src="images/bars_wave.gif" width="120"/> | <img src="images/bricks_animation.gif" width="120"/> | <img src="images/dot_spinner.gif" width="120"/> |
+| **RotatingBricks** | **RotatingSquare** | **SonarWave** |
+| <img src="images/rotating_bricks.gif" width="120"/> | <img src="images/rotating_square.gif" width="120"/> | <img src="images/sonar_wave.gif" width="120"/> |
+| **ThreeDotsWave** | **WatchRunning<br/>Animation** | **WatchTicking<br/>Animation** |
+| <img src="images/three_dots_wave.gif" width="120"/> | <img src="images/watch_running_animation.gif" width="120"/> | <img src="images/watch_ticking_animation.gif" width="120"/> |
 
 -----
 
