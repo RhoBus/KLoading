@@ -32,9 +32,8 @@ xcuserdata
 
 .gradle/*
 !.gradle/wrapper/
-.gradle/wrapper/*
 !.gradle/wrapper/gradle-wrapper.jar
-gradle-app.setting
+!.gradle/wrapper/gradle-wrapper.properties
 # gradlew
 # gradlew.bat
 
