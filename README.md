@@ -37,6 +37,8 @@ KLoading currently offers a variety of compelling animations. Each one is a `@Co
 | <img src="images/rotating_bricks.gif" width="120"/> | <img src="images/rotating_square.gif" width="120"/> | <img src="images/sonar_wave.gif" width="120"/> |
 | **ThreeDotsWave** | **WatchRunning<br/>Animation** | **WatchTicking<br/>Animation** |
 | <img src="images/three_dots_wave.gif" width="120"/> | <img src="images/watch_running_animation.gif" width="120"/> | <img src="images/watch_ticking_animation.gif" width="120"/> |
+| **WaterWave<br/>Animation** |  |  |
+| <img src="images/water_wave_animation.gif" width="120"/> |  |  |
 
 -----
 
