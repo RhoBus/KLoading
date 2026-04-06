@@ -1,26 +1,45 @@
 name: Publish
+
 on:
   release:
-    types: [released, prereleased]
+    types: [published]  # ← único cambio necesario
+
 jobs:
   publish:
     name: Release build and publish
-    runs-on: macOS-latest
+    runs-on: macos-latest
+    permissions:
+      contents: read
     steps:
-      - name: Check out code
+      - name: Checkout
         uses: actions/checkout@v4
+      - name: Ensure gradlew executable
+        run: chmod +x gradlew
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          distribution: 'zulu'
+          distribution: zulu
           java-version: 21
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
-      - name: Publish to MavenCentral
-        run: ./gradlew :library:publishAllPublicationsToMavenCentralRepository --no-configuration-cache
+          cache: gradle
+      - name: Cache Kotlin/Native
+        uses: actions/cache@v4
+        with:
+          path: ~/.konan
+          key: ${{ runner.os }}-konan-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+      - name: Publish to Maven Central
+        run: |
+          bash gradlew \
+            :library:publishAllPublicationsToMavenCentralRepository \
+            --no-configuration-cache \
+            --stacktrace
         env:
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.SIGNING_KEY_ID }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_PASSWORD }}
           ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_KEY_CONTENTS }}
+      - name: Close and Release Repository
+        run: bash gradlew closeAndReleaseMavenCentralStagingRepository
+        env:
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
