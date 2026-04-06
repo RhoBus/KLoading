@@ -9,8 +9,14 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
+      - name: Debug gradlew
+        run: |
+          ls -la gradlew
+          pwd
       - name: Set executable permission for gradlew
         run: chmod +x gradlew
+      - name: Debug gradlew after chmod
+        run: ls -la gradlew
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
