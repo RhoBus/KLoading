@@ -28,6 +28,7 @@ jobs:
 
       - name: Publish to Maven Central
         run: |
+          chmod +x gradlew
           ./gradlew :library:publishAllPublicationsToMavenCentralRepository \
             --no-configuration-cache \
             --stacktrace
