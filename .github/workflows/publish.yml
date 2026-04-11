@@ -11,18 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Debug gradlew
-        run: |
-            echo "--- file type ---"
-            file gradlew
-            echo "--- permissions ---"
-            ls -la gradlew
-            echo "--- first bytes (hex) ---"
-            hexdump -C gradlew | head -3
-            echo "--- git config ---"
-            git config --list | grep -i crlf
-            git config --list | grep -i autocrlf
-
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
