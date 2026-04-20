@@ -1,4 +1,5 @@
 import com.android.build.api.dsl.androidLibrary
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -12,6 +13,7 @@ plugins {
 group = "io.github.rhobus"
 version = "1.1.1"
 
+@OptIn(ExperimentalWasmDsl::class)
 kotlin {
     jvm("desktop")
     androidLibrary {
@@ -32,13 +34,18 @@ kotlin {
     iosX64()
     iosArm64()
     iosSimulatorArm64()
+    js {
+        browser()
+    }
+    wasmJs {
+        browser()
+    }
 
     sourceSets {
         commonMain.dependencies {
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material3)        // optional
-            implementation(compose.animation)
+            implementation(libs.compose.runtime)
+            implementation(libs.compose.foundation)
+            implementation(libs.compose.animation)
         }
 
         commonTest.dependencies {
