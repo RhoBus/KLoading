@@ -1,15 +1,35 @@
 <img src="images/kloading_logo.webp" alt="KLoading" width="300"/>
 
 [![Latest Release](https://img.shields.io/github/v/release/rhobus/KLoading)](https://github.com/rhobus/KLoading/releases)
-
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.3.20-7F52FF?logo=kotlin)](https://kotlinlang.org)
+[![Compose Multiplatform](https://img.shields.io/badge/Compose%20Multiplatform-1.10.3-4285F4)](https://www.jetbrains.com/compose-multiplatform/)
 
 # Beautiful Compose Multiplatform Loading Animations
 
 KLoading is a **Compose Multiplatform** library offering a collection of beautiful and customizable loading animations. Easily implement loading states across **Android, iOS, Desktop, and Web**.
 
+## 🖥️ Supported Platforms
+
+| Platform | Support |
+|:---|:---:|
+| Android | ✅ |
+| iOS | ✅ |
+| Desktop (JVM) | ✅ |
+| Web (JS) | ✅ |
+| Web (Wasm) | ✅ |
+
+## 📋 Requirements
+
+| Requirement | Minimum version |
+|:---|:---:|
+| Kotlin | 2.0.0 |
+| Compose Multiplatform | 1.7.0 |
+| Android minSdk | 24 |
+
 ## 🚀 Installation
 
-To integrate KLoading into your Compose Multiplatform project, you need to add the library as a dependency in your `build.gradle.kts` file (typically located in the common source set).
+To integrate KLoading into your Compose Multiplatform project, add the library as a dependency in your `build.gradle.kts` file.
 
 ### 1\. Add the Dependency
 
@@ -26,6 +46,12 @@ commonMain.dependencies {
 
 Ensure your project has access to the Maven Central repository where the library is hosted. This is usually configured in the top-level or project-level `settings.gradle.kts` or `build.gradle.kts`.
 
+```kotlin
+repositories {
+    mavenCentral()
+}
+```
+
 ## ✨ Animations Available
 
 KLoading currently offers a variety of compelling animations. Each one is a `@Composable` function that can be customized with parameters like `color`, `size`, and animation duration.
@@ -37,8 +63,8 @@ KLoading currently offers a variety of compelling animations. Each one is a `@Co
 | <img src="images/rotating_bricks.gif" width="120"/> | <img src="images/rotating_square.gif" width="120"/> | <img src="images/sonar_wave.gif" width="120"/> |
 | **ThreeDotsWave** | **WatchRunning<br/>Animation** | **WatchTicking<br/>Animation** |
 | <img src="images/three_dots_wave.gif" width="120"/> | <img src="images/watch_running_animation.gif" width="120"/> | <img src="images/watch_ticking_animation.gif" width="120"/> |
-| **WaterWave<br/>Animation** | **HeartPulse<br/>Animation** |  |
-| <img src="images/water_wave_animation.gif" width="120"/> | <img src="images/heart_pulse_animation.gif" width="120"/> |  |
+| **WaterWave<br/>Animation** | **HeartPulse<br/>Animation** | |
+| <img src="images/water_wave_animation.gif" width="120"/> | <img src="images/heart_pulse_animation.gif" width="120"/> | |
 
 -----
 
@@ -47,10 +73,11 @@ KLoading currently offers a variety of compelling animations. Each one is a `@Co
 All animations are regular Composable functions. Simply call them in your UI code\!
 
 ```kotlin
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -58,9 +85,11 @@ import io.github.rhobus.kloading.animation.DotSpinner
 
 @Composable
 fun LoadingScreen() {
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colorScheme.primary // Use a contrasting background
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Black),
+        contentAlignment = Alignment.Center
     ) {
         DotSpinner(
             color = Color.Yellow,
@@ -70,6 +99,8 @@ fun LoadingScreen() {
     }
 }
 ```
+
+> **Note:** KLoading has no dependency on Material3. The example above uses only `foundation` and `ui` — no additional dependencies required.
 
 -----
 
