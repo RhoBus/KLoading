@@ -1,4 +1,3 @@
-import com.android.build.api.dsl.androidLibrary
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -11,12 +10,12 @@ plugins {
 }
 
 group = "io.github.rhobus"
-version = "1.2.0"
+version = "1.3.0"
 
 @OptIn(ExperimentalWasmDsl::class)
 kotlin {
     jvm("desktop")
-    androidLibrary {
+    android {
         namespace = "io.github.rhobus.kloading"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
         minSdk = libs.versions.android.minSdk.get().toInt()
@@ -31,7 +30,6 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    iosX64()
     iosArm64()
     iosSimulatorArm64()
     js {
