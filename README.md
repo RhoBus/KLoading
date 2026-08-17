@@ -56,15 +56,59 @@ repositories {
 
 KLoading currently offers a variety of compelling animations. Each one is a `@Composable` function that can be customized with parameters like `color`, `size`, and animation duration.
 
-| BarsWave | BricksAnimation | DotSpinner |
+| BarsWave | BreathingCircle | BricksAnimation |
 |:---:|:---:|:---:|
-| <img src="images/bars_wave.gif" width="120"/> | <img src="images/bricks_animation.gif" width="120"/> | <img src="images/dot_spinner.gif" width="120"/> |
-| **RotatingBricks** | **RotatingSquare** | **SonarWave** |
-| <img src="images/rotating_bricks.gif" width="120"/> | <img src="images/rotating_square.gif" width="120"/> | <img src="images/sonar_wave.gif" width="120"/> |
-| **ThreeDotsWave** | **WatchRunning<br/>Animation** | **WatchTicking<br/>Animation** |
-| <img src="images/three_dots_wave.gif" width="120"/> | <img src="images/watch_running_animation.gif" width="120"/> | <img src="images/watch_ticking_animation.gif" width="120"/> |
-| **WaterWave<br/>Animation** | **HeartPulse<br/>Animation** | |
-| <img src="images/water_wave_animation.gif" width="120"/> | <img src="images/heart_pulse_animation.gif" width="120"/> | |
+| <img src="images/bars_wave.gif" width="120"/> | <img src="images/breathing_circle.gif" width="120"/> | <img src="images/bricks_animation.gif" width="120"/> |
+| **CometOrbit** | **CompassNeedle** | **DnaHelix** |
+| <img src="images/comet_orbit.gif" width="120"/> | <img src="images/compass_needle.gif" width="120"/> | <img src="images/dna_helix.gif" width="120"/> |
+| **DotSpinner** | **EqualizerBars** | **FlowerBloom** |
+| <img src="images/dot_spinner.gif" width="120"/> | <img src="images/equalizer_bars.gif" width="120"/> | <img src="images/flower_bloom.gif" width="120"/> |
+| **GearMesh** | **HeartPulse<br/>Animation** | **KnotLoop** |
+| <img src="images/gear_mesh.gif" width="120"/> | <img src="images/heart_pulse_animation.gif" width="120"/> | <img src="images/knot_loop.gif" width="120"/> |
+| **LavaLampBubble** | **MetronomeTick** | **OrbitDots** |
+| <img src="images/lava_lamp_bubble.gif" width="120"/> | <img src="images/metronome_tick.gif" width="120"/> | <img src="images/orbit_dots.gif" width="120"/> |
+| **PageFold** | **PendulumSwing** | **PulsingRing** |
+| <img src="images/page_fold.gif" width="120"/> | <img src="images/pendulum_swing.gif" width="120"/> | <img src="images/pulsing_ring.gif" width="120"/> |
+| **RadarSweep** | **RippleGrid** | **RotatingBricks** |
+| <img src="images/radar_sweep.gif" width="120"/> | <img src="images/ripple_grid.gif" width="120"/> | <img src="images/rotating_bricks.gif" width="120"/> |
+| **RotatingSquare** | **SonarWave** | **ThreeDotsWave** |
+| <img src="images/rotating_square.gif" width="120"/> | <img src="images/sonar_wave.gif" width="120"/> | <img src="images/three_dots_wave.gif" width="120"/> |
+| **WatchRunning<br/>Animation** | **WatchTicking<br/>Animation** | **WaterWave<br/>Animation** |
+| <img src="images/watch_running_animation.gif" width="120"/> | <img src="images/watch_ticking_animation.gif" width="120"/> | <img src="images/water_wave_animation.gif" width="120"/> |
+
+-----
+
+## 💫 Shimmer
+
+Beyond individual loading spinners, KLoading also offers a skeleton-shimmer system for placeholder content. Wrap your skeleton layout in a `ShimmerContainer` and apply the `Modifier.shimmerBreatheCascade()` modifier to each placeholder shape — the effect cascades down the layout based on each element's vertical position.
+
+```kotlin
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import io.github.rhobus.kloading.shimmer.ShimmerContainer
+import io.github.rhobus.kloading.shimmer.shimmerBreatheCascade
+
+ShimmerContainer(durationMillis = 1500) {
+    Column {
+        repeat(5) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(80.dp)
+                    .shimmerBreatheCascade()
+                    .background(Color.LightGray, RoundedCornerShape(8.dp))
+            )
+        }
+    }
+}
+```
 
 -----
 
